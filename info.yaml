@@ -1,9 +1,8 @@
 # TinyTapeout project info — tt_um_multi_stage_processor
 # https://tinytapeout.com/hdl/verilog
 
-  yaml_version: 1         # required by ttsky26a schema
-
 project:
+  yaml_version: 1
   title:       "Autonomous Mixed-Signal Pipeline Core"
   author:      "Kannan S J"
   description: "High-utilization autonomous mixed-signal core with FSM-driven datapath and live analog XOR feedback."
@@ -11,11 +10,7 @@ project:
   clock_hz:    50_000_000    # 50 MHz
 
   tiles: "1x2"
-
-  # Analog usage
   analog_pins: 2           # ua[0] = analog output (sampled into pipeline); ua[1] = analog input
-
-  # Top-level module
   top_module:  "tt_um_multi_stage_processor"
 
   source_files:
@@ -55,14 +50,14 @@ pinout:
   uio[6]: "Debug output bit 6 (part of 8-bit internal state bus)"
   uio[7]: "Debug output bit 7 (part of 8-bit internal state bus)"
 
-    # Analog — ua[5:0]
+  # Analog — ua[5:0]
   ua[0]: "analog_out — yen_top output; digitally sampled into pipeline"
   ua[1]: "analog_in  — yen_top input; drive with an analog signal (0 V to VDD)"
   ua[2]: "Unused analog pin (tie to VSS or leave open)"
   ua[3]: "Unused analog pin (tie to VSS or leave open)"
   ua[4]: "Unused analog pin (tie to VSS or leave open)"
   ua[5]: "Unused analog pin (tie to VSS or leave open)"
-  
+
 # ---------------------------------------------------------------------------
 # Documentation
 # ---------------------------------------------------------------------------
