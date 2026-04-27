@@ -1,8 +1,6 @@
-# TinyTapeout project info — tt_um_multi_stage_processor
-# https://tinytapeout.com/hdl/verilog
+yaml_version: 6
 
 project:
-  yaml_version: 1
   title:       "Autonomous Mixed-Signal Pipeline Core"
   author:      "Kannan S J"
   description: "High-utilization autonomous mixed-signal core with FSM-driven datapath and live analog XOR feedback."
