@@ -16,6 +16,9 @@ project:
   # Top-level module
   top_module:  "tt_um_multi_stage_processor"
 
+  source_files:
+  - src/project.v
+
 # ---------------------------------------------------------------------------
 # Pin descriptions — shown in the TinyTapeout datasheet
 # ---------------------------------------------------------------------------
