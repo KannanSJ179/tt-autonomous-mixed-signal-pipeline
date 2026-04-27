@@ -3,7 +3,7 @@
 
 project:
   title:       "Autonomous Mixed-Signal Pipeline Core"
-  author:      "Kannan"
+  author:      "Kannan S J"
   description: "High-utilization autonomous mixed-signal core with FSM-driven datapath and live analog XOR feedback."
   language:    "Verilog"
   clock_hz:    50_000_000    # 50 MHz
