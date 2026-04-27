@@ -1,6 +1,4 @@
----
-title: Autonomous Mixed-Signal Pipeline Core
----
+Title: Autonomous Mixed-Signal Pipeline Core
 
 ## What it does
 
