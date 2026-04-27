@@ -199,14 +199,20 @@ module core_digital (
 endmodule
 
 // -----------------------------------------------------------------------------
-// Analog stub (simulation pass‑through, blackbox in real flow)
+// Analog stub – blackbox for synthesis, pass‑through for simulation
 // -----------------------------------------------------------------------------
 module yen_top (
     inout VDD, VSS,
     input  analog_in,
     output analog_out
 );
-    assign analog_out = analog_in;   // simulation only; real cell substituted
+    // SYNTHESIS‑SAFE BLACKBOX:
+    // During synthesis this module is empty → treated as an external macro.
+    // The real layout replaces it with the analogue cell.
+`ifndef SYNTHESIS
+    // Simulation only: simple pass‑through for standalone functional tests.
+    assign analog_out = analog_in;
+`endif
 endmodule
 
 // -----------------------------------------------------------------------------
