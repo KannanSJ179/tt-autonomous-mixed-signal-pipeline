@@ -1,7 +1,7 @@
 top_module: tt_um_multi_stage_processor
 source_files:
-  - src/project.v
+-src/project.v
 
 analog_macros:
-  yen_top:
-    gds: gds/tt_um_multi_stage_processor.gds
+yen_top:
+gds: gds/tt_um_multi_stage_processor.gds
