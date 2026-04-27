@@ -292,28 +292,6 @@ After analog toggle, uo_out = XX
 
 ---
 
-## Why This Design is Interesting
-
-### For Reviewers
-
-This project pushes well beyond the typical TinyTapeout "blinky" or single-function submission. Key reasons it stands out:
-
-1. **Analog–digital co-design**: The analog output is not decorative. It becomes a direct pipeline operand via an 8-bit sampler, and is XOR-injected at Stage 4 on every cycle. This creates a genuinely mixed-signal feedback loop on silicon.
-
-2. **Autonomous FSM**: The ALU operation changes every clock cycle without CPU intervention. A board can observe 8 distinct processing behaviours per 8-cycle window by monitoring `uo_out` alone.
-
-3. **Full observability**: Every internal register — counter bytes, LFSR bytes, shift register, analog sample, FSM state, pre-ALU data — is accessible through the 8-channel debug multiplexer. No probe points are missing.
-
-4. **Safe synthesis practices**: Variable shifts are fully unrolled (8-case barrel shifter), FSM transitions are registered, outputs are double-registered to eliminate combinational glitches — all choices made for real silicon reliability.
-
-5. **High utilisation**: With four independent 16-bit datapath modules, a 5-stage combinational core, registered outputs, and analog stub, the design comfortably fills a 1×2 tile footprint at ~90–95%.
-
-### For Builders
-
-Connect a signal generator or DAC output to `ua[1]`, sweep `mode_sel` and `debug_sel`, and watch how the analog waveform bleeds into `uo_out` depending on pipeline configuration. Freeze the FSM with `hold` and you have a static observable snapshot. Switch `test_mode` on and the output collapses to a pure deterministic counter — a useful sanity check on any board bring-up.
-
----
-
 ## Repository Structure
 
 ```
